@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
-import logo from './logo.svg';
+import React from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 import Category from './category/Category';
 import Cart from './cart/Cart';
