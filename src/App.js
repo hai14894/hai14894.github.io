@@ -22,9 +22,6 @@ const App = () => {
       });
   };
   useEffect(() => {
-    console.log('====================================');
-    console.log("working");
-    console.log('====================================');
     getData();
   }, []);
   console.log(products);
