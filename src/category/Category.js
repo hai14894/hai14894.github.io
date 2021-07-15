@@ -38,6 +38,7 @@ const Category = () => {
                   title={item.title}
                   brand={item.brand}
                   price={item.price}
+                  image={item.image}
                 />
               </div>
             );

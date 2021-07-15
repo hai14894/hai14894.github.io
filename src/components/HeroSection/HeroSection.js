@@ -1,12 +1,12 @@
 import React from "react";
-import HeroImg from "../../media/plates-header.jpg";
+
 import HeroHeader from "./HeroHeader";
 const HeroSection = () => {
   return (
 
       <div
         style={{
-          backgroundImage: `url(${HeroImg})`,
+          backgroundImage: "url(/media/plates-header.jpg)",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           height: "530px",
