@@ -11,7 +11,7 @@ const App = () => {
   const [products,setProducts] =useState(null);
   const getData = async function () {
     await axios
-      .get("products.json", {
+      .get("/products.json", {
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
@@ -27,6 +27,7 @@ const App = () => {
     console.log('====================================');
     getData();
   }, []);
+  console.log(products);
   return (
     <div className="App">
       <BrowserRouter>

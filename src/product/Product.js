@@ -5,17 +5,16 @@ import "./Product.css";
 import ProductContext from "../context"
 import { useParams } from "react-router-dom";
 
-const Product = ({ match }) => {
-    const {products} =useContext(ProductContext)
-    console.log('====================================');
-    console.log(products);
-    console.log('====================================');
+const Product = () => {
+    let {id} = useParams()
+    const {products} = useContext(ProductContext)
+    
   return (
      <div className="Product">
       
-        Product {match.params.id}
-              {/* <ProductDetails  title={product.title} price={product.price}/>
-           */}
+        Product {id}
+              {/* <ProductDetails  title={product.title} price={product.price}/> */}
+          
       
       
       </div>);
