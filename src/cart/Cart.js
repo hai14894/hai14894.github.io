@@ -1,8 +1,8 @@
-import React from 'react';
-import './Cart.css';
+import React from "react";
+import "./Cart.css";
 
 const Cart = () => {
-    return <div className="Cart">Cart</div>;
+  return <div className="Cart">Cart</div>;
 };
 
 export default Cart;
