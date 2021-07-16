@@ -8,8 +8,8 @@ import Cart from "./cart/Cart";
 import Product from "./product/Product";
 
 const App = () => {
-  const [products, setProducts] = useState(null);
-  const [product, setProduct] = useState({});
+  const [products, setProducts] = useState(undefined);
+
   const getData = async function () {
     await axios
       .get("/products.json", {
@@ -23,16 +23,6 @@ const App = () => {
       });
   };
 
-  // cart: [ {product1}... {productN} ]
-
-  // increment => check if exist => count += 1
-  //           => new product, count = 1
-  // decrement => check if count > 1 => count -= 1
-  //                 => count = 1 => remove product
-  // remove => remove product by key
-
-  const setProductDetail = (data) => setProduct(data);
-
   useEffect(() => {
     getData();
   }, []);
@@ -40,9 +30,7 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <ProductContext.Provider
-          value={{ products, setProducts, product, setProductDetail }}
-        >
+        <ProductContext.Provider value={{ products }}>
           <Switch>
             <Route exact path="/" component={Category} />
             <Route path="/cart" component={Cart} />

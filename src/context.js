@@ -9,6 +9,6 @@
 //     )
 // }
 // export default AppContextProvider
-import { createContext } from "react"
+import { createContext } from "react";
 
-export default createContext(null)
+export default createContext(null);
