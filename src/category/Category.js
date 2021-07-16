@@ -2,11 +2,11 @@ import React, { useEffect, useContext } from "react";
 import HeroSection from "../components/HeroSection/HeroSection.js";
 import NavBar from "../components/NavBar/NavBar.js";
 import CategoryProduct from "./CategoryProduct";
-import ProductContext from "../context"
+import ProductContext from "../context";
 import "./Category.css";
 
 const Category = () => {
- const {products} = useContext(ProductContext)
+  const { products } = useContext(ProductContext);
 
   return (
     <div className="Category">
