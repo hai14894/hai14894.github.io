@@ -73,17 +73,17 @@ framework mastery and appropriate use of JS libraries.
 
 #### Category List page:
 
-![](./screens/category-page.png)
+![](public/screens/category-page.png)
 
 -   Clicking the My Cart link should display the Cart Popup.
 -   Hovering over one of the product tiles should display an overlay prompting
     the user to Add to Cart or View Details, as below:
 
-![](./screens/product-tile-overlay.png)
+![](public/screens/product-tile-overlay.png)
 
 #### Cart Popup:
 
-![](./screens/cart-popup.png)
+![](public/screens/cart-popup.png)
 
 -   You should be able to remove items from the cart using the popup.
 -   The View Cart button should take you to the cart page.
@@ -93,7 +93,7 @@ framework mastery and appropriate use of JS libraries.
 
 #### Product details page:
 
-![](./screens/product-details.png)
+![](public/screens/product-details.png)
 
 -   Clicking the My Cart link should display the Cart Popup.
 -   The quantity buttons should work as expected.
@@ -101,7 +101,7 @@ framework mastery and appropriate use of JS libraries.
 
 #### Cart page:
 
-![](./screens/cart.png)
+![](public/screens/cart.png)
 
 -   Clicking the My Cart link should display the Cart Popup.
 -   The quantity buttons should work as expected, including updating the total

@@ -23,7 +23,16 @@ const App = () => {
       });
   };
 
+  // cart: [ {product1}... {productN} ]
+
+  // increment => check if exist => count += 1
+  //           => new product, count = 1
+  // decrement => check if count > 1 => count -= 1
+  //                 => count = 1 => remove product
+  // remove => remove product by key
+
   const setProductDetail = (data) => setProduct(data);
+
   useEffect(() => {
     getData();
   }, []);
