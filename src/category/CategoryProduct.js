@@ -1,14 +1,14 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const CategoryProduct = (props) => {
+  const { title, description, price, image } = props;
 
   return (
     <div>
-    
-      <span>{props.title}</span>
-      <span>{props.description}</span>
-      <span>{props.price}</span>
-      <img src={`/media/${props.image}`}/>
+      <span>{title}</span>
+      <span>{description}</span>
+      <span>{price}</span>
+      <img src={`/media/${image}`} />
     </div>
   );
 };

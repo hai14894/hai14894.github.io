@@ -5,25 +5,27 @@ import CategoryProduct from "./CategoryProduct";
 import ProductContext from "../context";
 import "./Category.css";
 
+import { Link } from "react-router-dom";
+
 const Category = () => {
   const { products } = useContext(ProductContext);
-
+  
   return (
     <div className="Category">
       <NavBar />
       <HeroSection />
       <div>
         {products &&
-          products.map((products, key) => {
+          products.map((product, key) => {
             return (
-              <div key={key}>
+              <Link key={key} to={`/product/${key + 1}`}>
                 <CategoryProduct
-                  title={products.title}
-                  brand={products.brand}
-                  price={products.price}
-                  image={products.image}
+                  title={product.title}
+                  brand={product.brand}
+                  price={product.price}
+                  image={product.image}
                 />
-              </div>
+              </Link>
             );
           })}
       </div>

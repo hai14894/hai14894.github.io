@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -8,7 +8,7 @@ import Cart from "./cart/Cart";
 import Product from "./product/Product";
 
 const App = () => {
-  const [products,setProducts] =useState(null);
+  const [products, setProducts] = useState(null);
   const getData = async function () {
     await axios
       .get("/products.json", {
@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <ProductContext.Provider value={{products, setProducts}}>
+        <ProductContext.Provider value={{ products, setProducts }}>
           <Switch>
             <Route exact path="/" component={Category} />
             <Route path="/cart" component={Cart} />
