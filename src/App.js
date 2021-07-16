@@ -9,6 +9,7 @@ import Product from "./product/Product";
 
 const App = () => {
   const [products, setProducts] = useState(null);
+  const [product, setProduct] = useState({});
   const getData = async function () {
     await axios
       .get("/products.json", {
@@ -21,6 +22,8 @@ const App = () => {
         setProducts(response.data);
       });
   };
+
+  const setProductDetail = (data) => setProduct(data);
   useEffect(() => {
     getData();
   }, []);
@@ -28,7 +31,9 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <ProductContext.Provider value={{ products, setProducts }}>
+        <ProductContext.Provider
+          value={{ products, setProducts, product, setProductDetail }}
+        >
           <Switch>
             <Route exact path="/" component={Category} />
             <Route path="/cart" component={Cart} />

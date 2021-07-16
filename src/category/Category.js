@@ -8,8 +8,8 @@ import "./Category.css";
 import { Link } from "react-router-dom";
 
 const Category = () => {
-  const { products } = useContext(ProductContext);
-  
+  const { products, setProductDetail } = useContext(ProductContext);
+
   return (
     <div className="Category">
       <NavBar />
@@ -18,7 +18,11 @@ const Category = () => {
         {products &&
           products.map((product, key) => {
             return (
-              <Link key={key} to={`/product/${key + 1}`}>
+              <Link
+                key={key}
+                to={`/product/${key + 1}`}
+                onClick={() => setProductDetail(product)}
+              >
                 <CategoryProduct
                   title={product.title}
                   brand={product.brand}
