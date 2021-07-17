@@ -8,12 +8,11 @@ import "./Category.css";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../provider/AppProvider/App.provider";
 
-// do reducer mình chưa set initialState cho nó nên hiện tại nó sẽ không có giá trị nào hết
 
 const Category = () => {
   const {
     state: { isLoading, products },
-    actions: { setProduct }
+    actions: { setProductDetail },
   } = useAppContext();
 
   return (
@@ -28,7 +27,11 @@ const Category = () => {
           products.length > 0 &&
           products.map((product, key) => {
             return (
-              <Link key={key} to={`/product/${key + 1}`} onClick={() => setProduct(product)}>
+              <Link
+                key={key}
+                to={`/product/${key + 1}`}
+                onClick={() => setProductDetail(product)}
+              >
                 <CategoryProduct
                   title={product.title}
                   brand={product.brand}

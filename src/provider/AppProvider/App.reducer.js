@@ -1,8 +1,6 @@
-
-
 const reducer = (state, action) => {
   const { type, payload } = action;
-  console.log(action)
+  console.log(action);
   switch (type) {
     case "APP/FETCH_START": {
       return { ...state, isLoading: true };
@@ -17,7 +15,16 @@ const reducer = (state, action) => {
       return { ...state, product: payload };
     }
     case "APP/ADD_TO_CART": {
-      const updatedCart = [...state.cart, payload];
+      let updatedCart = [...state.cart];
+      const productIndex = [...state.cart].findIndex(
+        (product) => product.id === payload.id
+      );
+
+      if (productIndex > -1) {
+        updatedCart[productIndex] = payload;
+      } else {
+        updatedCart.push(payload);
+      }
       return { ...state, cart: updatedCart };
     }
     case "APP/REMOVE_FROM_CART": {

@@ -28,10 +28,11 @@ const useAppContext = () => {
   return context;
 };
 
-// Hoặc có cách khác để mình by pass việc gọi API, ok a
-
 const AppProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, {}, () => {
+    const data = localStorage.getItem("data");
+    return data ? JSON.parse(data) : initialState;
+  });
   const [enhancedActions, setEnhancedActions] = useState(actions);
 
   const fetchProducts = () => {
@@ -50,18 +51,15 @@ const AppProvider = (props) => {
 
   useEffect(() => {
     fetchProducts();
-
-    // function bên dưới nghĩa là, khi dùng context, sẽ ko có middleware như redux
-    // Nên khi a gọi action a phải gọi: actionA(args)(dispatch) vì ở action mình return về dispatch (High order func)
-    // solution là mình sẽ dùng Object.keys để đưa actions về mảng, loop through and return về action đã bind (dispatch)
-    // => mình sẽ ko cần phải pass (dispatch) ở cuối mỗi action
     Object.keys(actions).forEach((key) =>
       setEnhancedActions((prev) => ({
         ...prev,
-        [key]: (...args) => actions[key](args)(dispatch),
+        [key]: (...args) => actions[key](...args)(dispatch),
       }))
     );
   }, []);
+
+  useEffect(() => {}, [state]);
 
   return (
     <AppContext.Provider value={{ state, actions: enhancedActions }}>
