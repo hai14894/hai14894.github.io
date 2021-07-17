@@ -1,11 +1,7 @@
-import React from 'react'
-import "./style.css"
+import React from "react";
+import "./style.css";
 const HeroHeader = () => {
-    return (
-        <div className="hero-header">
-            text
-        </div>
-    )
-}
+  return <div className="hero-header">text</div>;
+};
 
-export default HeroHeader
+export default HeroHeader;

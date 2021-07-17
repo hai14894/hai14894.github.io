@@ -6,22 +6,29 @@ import ProductContext from "../context";
 import "./Category.css";
 
 import { Link } from "react-router-dom";
+import { useAppContext } from "../provider/AppProvider/App.provider";
+
+// do reducer mình chưa set initialState cho nó nên hiện tại nó sẽ không có giá trị nào hết
 
 const Category = () => {
-  const { products } = useContext(ProductContext);
+  const {
+    state: { isLoading, products },
+    actions: { setProduct }
+  } = useAppContext();
 
   return (
     <div className="Category">
       <NavBar />
       <HeroSection />
       <div>
-        {products &&
+        {isLoading ? (
+          <div>Loading</div>
+        ) : (
+          products &&
+          products.length > 0 &&
           products.map((product, key) => {
             return (
-              <Link
-                key={key}
-                to={`/product/${key + 1}`}
-              >
+              <Link key={key} to={`/product/${key + 1}`} onClick={() => setProduct(product)}>
                 <CategoryProduct
                   title={product.title}
                   brand={product.brand}
@@ -30,7 +37,8 @@ const Category = () => {
                 />
               </Link>
             );
-          })}
+          })
+        )}
       </div>
     </div>
   );
