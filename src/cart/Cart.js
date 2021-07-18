@@ -8,6 +8,9 @@ const Cart = () => {
     state: { cart },
     actions: { removeFromCart },
   } = useAppContext();
+
+  console.log(cart)
+
   return (
     <div className="Cart">
       {cart && cart.length > 0 ? (
@@ -21,6 +24,7 @@ const Cart = () => {
                 <button>+</button>
                 <button>-</button>
               </div>
+              <button onClick={() => removeFromCart(item.id)}>x</button>
             </div>
           );
         })

@@ -6,7 +6,7 @@ const setProductDetail = (product) => (dispatch) =>
   dispatch({ type: "APP/SET_PRODUCT", payload: product });
 const addToCart = (product) => (dispatch) =>
   dispatch({ type: "APP/ADD_TO_CART", payload: product });
-const removeFromCart = (productId) =>
+const removeFromCart = (productId) => (dispatch) =>
   dispatch({ type: "APP/REMOVE_FROM_CART", payload: productId });
 
 const actions = {

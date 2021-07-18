@@ -8,7 +8,7 @@ import NavBar from "../components/NavBar/NavBar";
 const Product = () => {
   const { id } = useParams();
   const {
-    state: { product },
+    state: { product,cart },
     actions: { addToCart },
   } = useAppContext();
 

@@ -59,7 +59,9 @@ const AppProvider = (props) => {
     );
   }, []);
 
-  useEffect(() => {}, [state]);
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(state));
+  }, [state]);
 
   return (
     <AppContext.Provider value={{ state, actions: enhancedActions }}>
