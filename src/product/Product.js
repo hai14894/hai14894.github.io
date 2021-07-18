@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import "./Product.css";
 import { useAppContext } from "../provider/AppProvider/App.provider";
-
 import NavBar from "../components/NavBar/NavBar";
 
 const Product = () => {
@@ -34,7 +33,7 @@ const Product = () => {
           <div>
             {product.title}
             {product.price}
-            <img src={product.image} alt='image' />
+            <img src={`/media/${product.image}`} alt="image" />
           </div>
         )}
         <button onClick={handleIncrement}>+</button>

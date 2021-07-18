@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Category from "./category/Category";
 import Cart from "./cart/Cart";

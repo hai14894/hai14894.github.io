@@ -48,8 +48,8 @@ const reducer = (state, action) => {
         (product) => product.id === payload.id
       );
 
-      updatedCart[productIndex].count -= 1
-      
+      updatedCart[productIndex].count -= 1;
+
       return { ...state, cart: updatedCart };
     }
     default: {

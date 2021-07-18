@@ -13,7 +13,7 @@ const HeroSection = () => {
         position: "relative",
       }}
     >
-      <HeroHeader />
+      <HeroHeader text="lorrem" />
     </div>
   );
 };

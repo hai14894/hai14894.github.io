@@ -1,13 +1,10 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import HeroSection from "../components/HeroSection/HeroSection.js";
 import NavBar from "../components/NavBar/NavBar.js";
 import CategoryProduct from "./CategoryProduct";
-import ProductContext from "../context";
 import "./Category.css";
-
 import { Link } from "react-router-dom";
 import { useAppContext } from "../provider/AppProvider/App.provider";
-
 
 const Category = () => {
   const {
