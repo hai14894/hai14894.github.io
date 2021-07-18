@@ -34,6 +34,7 @@ const Product = () => {
           <div>
             {product.title}
             {product.price}
+            <img src={product.image} alt='image' />
           </div>
         )}
         <button onClick={handleIncrement}>+</button>
