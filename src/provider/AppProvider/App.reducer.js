@@ -20,17 +20,36 @@ const reducer = (state, action) => {
         (product) => product.id === payload.id
       );
 
-      if (productIndex > -1) {
-        updatedCart[productIndex] = payload;
-      } else {
-        updatedCart.push(payload);
-      }
+      productIndex > -1
+        ? (updatedCart[productIndex] = payload)
+        : updatedCart.push(payload);
+
       return { ...state, cart: updatedCart };
     }
     case "APP/REMOVE_FROM_CART": {
       const updatedCart = [...state.cart].filter(
         (product) => product.id !== payload
       );
+      return { ...state, cart: updatedCart };
+    }
+    case "APP/INCREMENT_COUNT": {
+      const updatedCart = [...state.cart];
+      const productIndex = updatedCart.findIndex(
+        (product) => product.id === payload.id
+      );
+
+      updatedCart[productIndex].count += 1;
+
+      return { ...state, cart: updatedCart };
+    }
+    case "APP/DECREMENT_COUNT": {
+      const updatedCart = [...state.cart];
+      const productIndex = updatedCart.findIndex(
+        (product) => product.id === payload.id
+      );
+
+      updatedCart[productIndex].count -= 1
+      
       return { ...state, cart: updatedCart };
     }
     default: {

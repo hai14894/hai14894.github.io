@@ -9,12 +9,17 @@ const addToCart = (product) => (dispatch) =>
 const removeFromCart = (productId) => (dispatch) =>
   dispatch({ type: "APP/REMOVE_FROM_CART", payload: productId });
 
+const incrementCount = (productId, productCount) => dispatch => dispatch({ type: 'APP/INCREMENT_COUNT', payload: { id: productId, count: productCount } })
+const decrementCount = (productId, productCount) => dispatch => dispatch({ type: 'APP/DECREMENT_COUNT', payload: { id: productId, count: productCount } })
+
 const actions = {
   startFetching,
   setProducts,
   setProductDetail,
   addToCart,
   removeFromCart,
+  incrementCount,
+  decrementCount,
 };
 
 export default actions;

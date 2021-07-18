@@ -6,10 +6,8 @@ import { useAppContext } from "../provider/AppProvider/App.provider";
 const Cart = () => {
   const {
     state: { cart },
-    actions: { removeFromCart },
+    actions: { removeFromCart, incrementCount, decrementCount },
   } = useAppContext();
-
-  console.log(cart)
 
   return (
     <div className="Cart">
@@ -21,8 +19,8 @@ const Cart = () => {
               <p>{item.price * item.count}</p>
               <div>
                 <p>{item.count}</p>
-                <button>+</button>
-                <button>-</button>
+                <button onClick={() => incrementCount(item.id, item.count)}>+</button>
+                <button disabled={item.count === 1} onClick={() => decrementCount(item.id, item.count)}>-</button>
               </div>
               <button onClick={() => removeFromCart(item.id)}>x</button>
             </div>
