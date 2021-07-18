@@ -1,14 +1,15 @@
-import React, { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import "./Product.css";
 import { useAppContext } from "../provider/AppProvider/App.provider";
 
 import NavBar from "../components/NavBar/NavBar";
 
 const Product = () => {
+  const history = useHistory();
   const { id } = useParams();
   const {
-    state: { product,cart },
+    state: { product },
     actions: { addToCart },
   } = useAppContext();
 
@@ -20,6 +21,10 @@ const Product = () => {
   const handleDecrement = () => {
     count > 0 && setCount((prevState) => (prevState -= 1));
   };
+
+  useEffect(() => {
+    product.id !== Number(id) && history.push("/");
+  }, [product.id]);
 
   return (
     <div>
@@ -36,7 +41,7 @@ const Product = () => {
         <span>{count}</span>
         <button
           disabled={count === 0}
-          onClick={() => addToCart({ ...product, count, id: Number(id) })}
+          onClick={() => addToCart({ ...product, count })}
         >
           Add to cart
         </button>

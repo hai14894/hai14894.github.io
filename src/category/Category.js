@@ -30,7 +30,7 @@ const Category = () => {
               <Link
                 key={key}
                 to={`/product/${key + 1}`}
-                onClick={() => setProductDetail(product)}
+                onClick={() => setProductDetail({ ...product, id: key + 1 })}
               >
                 <CategoryProduct
                   title={product.title}
