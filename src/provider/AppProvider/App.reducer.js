@@ -19,11 +19,15 @@ const reducer = (state, action) => {
       const productIndex = [...state.cart].findIndex(
         (product) => product.id === payload.id
       );
-
-      productIndex > -1
-        ? (updatedCart[productIndex] = payload)
-        : updatedCart.push(payload);
-
+      if (productIndex > -1) {
+        const product = {
+          ...payload,
+          count: (updatedCart[productIndex].count += payload.count),
+        };
+        updatedCart[productIndex] = product;
+      } else {
+        updatedCart.push(payload);
+      }
       return { ...state, cart: updatedCart };
     }
     case "APP/REMOVE_FROM_CART": {
