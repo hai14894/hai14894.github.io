@@ -1,2 +1,17 @@
 .Cart {
+  background-color: rgb(238, 238, 238);
+}
+.shopping-cart-text {
+  font-size: 70px;
+  font-style: oblique;
+}
+.cart-wrapper {
+  background-color: white;
+  width: 1000px;
+  height: responsive;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.cart-title-details {
 }

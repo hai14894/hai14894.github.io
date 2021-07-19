@@ -13,32 +13,35 @@ const Cart = () => {
   return (
     <div className="Cart">
       <NavBar />
-      {cart && cart.length > 0 ? (
-        cart.map((item) => {
-          return (
-            <div key={item.id}>
-              <h1>{item.title}</h1>
-              <img src={`/media/${item.image}`} />
-              <p>{item.price * item.count}</p>
-              <div>
-                <p>{item.count}</p>
-                <button onClick={() => incrementCount(item.id, item.count)}>
-                  +
-                </button>
-                <button
-                  disabled={item.count === 1}
-                  onClick={() => decrementCount(item.id, item.count)}
-                >
-                  -
-                </button>
+      <span className="shopping-cart-text">Shopping cart</span>
+      <div className="cart-wrapper">
+        {cart.length < 1 ? (
+          <div>Cart is empty</div>
+        ) : (
+          cart.map((item) => {
+            return (
+              <div key={item.id}>
+                <h1>{item.title}</h1>
+                <img src={`/media/${item.image}`} />
+                <p>{item.price * item.count}</p>
+                <div>
+                  <p>{item.count}</p>
+                  <button onClick={() => incrementCount(item.id, item.count)}>
+                    +
+                  </button>
+                  <button
+                    disabled={item.count === 1}
+                    onClick={() => decrementCount(item.id, item.count)}
+                  >
+                    -
+                  </button>
+                </div>
+                <button onClick={() => removeFromCart(item.id)}>x</button>
               </div>
-              <button onClick={() => removeFromCart(item.id)}>x</button>
-            </div>
-          );
-        })
-      ) : (
-        <div>Cart empty</div>
-      )}
+            );
+          })
+        )}
+      </div>
     </div>
   );
 };
