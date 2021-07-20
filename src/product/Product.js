@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import "./Product.css";
 import { useAppContext } from "../provider/AppProvider/App.provider";
 import NavBar from "../components/NavBar/NavBar";
+import BaseSection from "../components/layout/BaseSection";
+import Breadcrumb from "./BreadCrumb";
+import ProductDetail from "./ProductDetails";
+import { ProductContainer, ImageContainer, Image } from "./styled";
 
 const Product = () => {
   const history = useHistory();
@@ -28,24 +31,25 @@ const Product = () => {
   return (
     <div>
       <NavBar />
-      <div className="Product">
+      <BaseSection>
+        <Breadcrumb title={product.title} />
+      </BaseSection>
+      <BaseSection>
         {product && (
-          <div>
-            {product.title}
-            {product.price}
-            <img src={`/media/${product.image}`} alt="image" />
-          </div>
+          <ProductContainer>
+            <ImageContainer>
+              <Image image={product.image} />
+            </ImageContainer>
+            <ProductDetail
+              product={{ ...product }}
+              onIncrement={handleIncrement}
+              onDecrement={handleDecrement}
+              onAddToCart={addToCart}
+              count={count}
+            ></ProductDetail>
+          </ProductContainer>
         )}
-        <button onClick={handleIncrement}>+</button>
-        <button onClick={handleDecrement}>-</button>
-        <span>{count}</span>
-        <button
-          disabled={count === 0}
-          onClick={() => addToCart({ ...product, count })}
-        >
-          Add to cart
-        </button>
-      </div>
+      </BaseSection>
     </div>
   );
 };

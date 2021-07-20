@@ -13,11 +13,14 @@ import {
 const CategoryProduct = (props) => {
   const { brand, title, price, image, product, id } = props;
   const [isShowOverlay, setisShowOverlay] = useState(false);
-  const handleOnMouse = () => {
-    setisShowOverlay(!isShowOverlay);
+  const handleMouseEnter = () => {
+    setisShowOverlay(true);
+  };
+  const handleMouseLeave = () => {
+    setisShowOverlay(false);
   };
   return (
-    <Container onMouseEnter={handleOnMouse} onMouseLeave={handleOnMouse}>
+    <Container onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <TopContainer>
         <CategoryProductOverlay
           isShowOverlay={isShowOverlay}
