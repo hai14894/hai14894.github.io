@@ -11,6 +11,15 @@ export const TopContainer = styled("div")`
   display: flex;
   position: relative;
 `;
+export const ImageContainer = styled("div")`
+  background-image: url(/media/${({ image }) => image});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 0;
+  padding-top: 65%;
+`;
 export const Brand = styled("div")`
   color: rgb(141, 125, 125);
   font-size: 16px;

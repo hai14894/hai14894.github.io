@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import styled from "@emotion/styled";
 import ProductInfoContainer from "../../components/ProductInfoContainer";
 import CategoryProductOverlay from "./CategoryProductOverlay";
-import { Container, TopContainer, Brand, Title, Price } from "./styled";
-
-const ImageContainer = styled("div")`
-  background-image: url(/media/${({ image }) => image});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 0;
-  padding-top: 65%;
-`;
+import {
+  Container,
+  TopContainer,
+  ImageContainer,
+  Brand,
+  Title,
+  Price,
+} from "./styled";
 
 const CategoryProduct = (props) => {
   const { brand, title, price, image, product, id } = props;

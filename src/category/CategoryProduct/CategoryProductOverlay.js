@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 import { breakpoints, size } from "../../components/layout/constant";
 import { useAppContext } from "../../provider/AppProvider/App.provider";
@@ -19,29 +20,35 @@ const Overlay = styled("div")`
   opacity: ${({ isShowOverlay }) => (isShowOverlay ? 1 : 0)};
   transition: all 300ms ease-in;
 `;
-const ViewDetails = styled("button")`
+const btnCss = `
   width: 60%;
   height: 36px;
-  background-color: black;
+  font-family: Arial;
+  font-size: 13px;
   color: white;
   border-style: none;
   cursor: pointer;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+`;
+const ViewDetails = styled(Link)`
+  ${btnCss}
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  text-decoration: none;
   margin-bottom: ${size.sm}px;
   @media (min-width: ${breakpoints.md}px) {
     margin-bottom: ${size.md}px;
   }
 `;
 const AddToCart = styled("button")`
-  width: 60%;
-  height: 36px;
-  background-color: rgb(74, 74, 77);
-  color: white;
-  border-style: none;
-  cursor: pointer;
+  ${btnCss}
+  background-color: rgb(74,74,77);
 `;
 const CategoryOverlay = ({ isShowOverlay, product, id }) => {
   const {
-    actions: { addToCart },
+    actions: { addToCart, setProductDetail },
   } = useAppContext();
 
   const onclick = (e) => {
@@ -52,7 +59,12 @@ const CategoryOverlay = ({ isShowOverlay, product, id }) => {
   };
   return (
     <Overlay isShowOverlay={isShowOverlay}>
-      <ViewDetails>View Details</ViewDetails>
+      <ViewDetails
+        to={`/product/${id}`}
+        onClick={() => setProductDetail({ ...product, id: id })}
+      >
+        <span>View Details</span>
+      </ViewDetails>
       <AddToCart onClick={onclick}>Add To Cart</AddToCart>
     </Overlay>
   );
