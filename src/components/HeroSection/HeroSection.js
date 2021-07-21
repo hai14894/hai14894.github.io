@@ -1,20 +1,11 @@
 import React from "react";
-
 import HeroHeader from "./HeroHeader";
+import { StyledHeroSection } from "./styled";
 const HeroSection = () => {
   return (
-    <div
-      style={{
-        backgroundImage: "url(/media/plates-header.jpg)",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        height: "530px",
-        width: "100%",
-        position: "relative",
-      }}
-    >
-      <HeroHeader text="lorrem" />
-    </div>
+    <StyledHeroSection>
+      <HeroHeader text="Lorrem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at purus pulvinar, placerat turpis ac, interdum metus. In eget massa sed enim hendrerir auctor a eget arcu. Curabitur ac pharetra nisl sit" />
+    </StyledHeroSection>
   );
 };
 

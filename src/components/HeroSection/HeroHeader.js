@@ -1,7 +1,21 @@
 import React from "react";
-import "./style.css";
+import {
+  HeaderContainer,
+  StyledHeroHeader,
+  HeaderTop,
+  HeaderBottom,
+} from "./styled";
 const HeroHeader = (props) => {
-  return <div className="hero-header">{props.text || "text"}</div>;
+  return (
+    <HeaderContainer>
+      <StyledHeroHeader>
+        <HeaderTop>
+          Plates<hr style={{ color: "white", margin: 0 }}></hr>
+        </HeaderTop>
+        <HeaderBottom>{props.text || "text"}</HeaderBottom>
+      </StyledHeroHeader>
+    </HeaderContainer>
+  );
 };
 
 export default HeroHeader;
