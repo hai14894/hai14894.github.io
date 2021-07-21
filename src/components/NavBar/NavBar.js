@@ -1,25 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React, { useState } from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import { useAppContext } from "../../provider/AppProvider/App.provider";
-
-import "./style.css";
-const NavBar = () => {
+import CartPopup from "./CartPopup";
+import { Container, StyledNav } from "./styled";
+const GlobalNav = () => {
   const {
     state: { cart },
+    actions: { removeFromCart },
   } = useAppContext();
-
-  const totalCount = cart.reduce((acc, current) => (acc += current.count), 0);
+  const [isShowPopup, setShowPopup] = useState(false);
+  const handleClick = () => {
+    setShowPopup(!isShowPopup);
+  };
+  const totalCount = cart
+    ? cart.reduce((acc, current) => (acc += current.count), 0)
+    : 0;
 
   return (
-    <div className="nav-bar">
-      <Link to="/">
-        <img src={`/media/logo.png`} alt="logo" />
-      </Link>
-      <span>Links</span>
-      <span>My Cart({totalCount})</span>
-    </div>
+    <Container>
+      <StyledNav expand="md" sticky="top">
+        <Navbar.Brand href="/" id="logo-branch">
+          <img src={`/media/logo.png`} alt="logo" />
+        </Navbar.Brand>
+
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="inner-nav">
+            <Nav.Link href="/">HOME</Nav.Link>
+            <NavDropdown title="SHOP">
+              <NavDropdown.Item href="/">Link</NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href="/">JOURNAL</Nav.Link>
+            <NavDropdown title="MORE">
+              <NavDropdown.Item href="/">Link</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown
+              title={`MY CART (${totalCount})`}
+              id="nav-cart"
+              onClick={handleClick}
+            ></NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </StyledNav>
+      <CartPopup
+        cart={cart}
+        isShowPopup={isShowPopup}
+        removeFromCart={removeFromCart}
+      />
+    </Container>
   );
 };
 
-export default NavBar;
+export default GlobalNav;

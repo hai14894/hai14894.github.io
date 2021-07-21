@@ -1,12 +1,11 @@
 import React from "react";
 import HeroSection from "../components/HeroSection/HeroSection.js";
-import NavBar from "../components/NavBar/NavBar.js";
 import CategoryProduct from "./CategoryProduct/CategoryProduct";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../provider/AppProvider/App.provider";
 import BaseSection from "../components/layout/BaseSection";
 import { StyledCategoryContainer } from "./styled";
-
+import GlobalNav from "../components/NavBar/NavBar.js";
 const Category = () => {
   const {
     state: { isLoading, products },
@@ -15,7 +14,7 @@ const Category = () => {
 
   return (
     <div>
-      <NavBar />
+      <GlobalNav />
       <HeroSection />
       <BaseSection>
         {isLoading ? (
