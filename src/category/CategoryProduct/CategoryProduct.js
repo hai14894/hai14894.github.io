@@ -27,6 +27,7 @@ const CategoryProduct = (props) => {
           product={product}
           id={id}
         />
+
         <ImageContainer image={image} />
       </TopContainer>
       <ProductInfoContainer>

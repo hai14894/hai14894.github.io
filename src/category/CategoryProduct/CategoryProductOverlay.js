@@ -21,10 +21,11 @@ const Overlay = styled("div")`
   transition: all 300ms ease-in;
 `;
 const btnCss = `
-  width: 60%;
+  width: 50%;
   height: 36px;
   font-family: Arial;
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 15px;
   color: white;
   border-style: none;
   cursor: pointer;
@@ -41,10 +42,22 @@ const ViewDetails = styled(Link)`
   @media (min-width: ${breakpoints.md}px) {
     margin-bottom: ${size.md}px;
   }
+  transition: all 0.2s ease-in-out 0s;
+  &:hover {
+    transform: scale(1.05);
+    background-color: white;
+    color: black;
+  }
 `;
 const AddToCart = styled("button")`
   ${btnCss}
   background-color: rgb(74,74,77);
+  transition: all 0.2s ease-in-out 0s;
+  &:hover {
+    transform: scale(1.05);
+    background-color: white;
+    color: black;
+  }
 `;
 const CategoryOverlay = ({ isShowOverlay, product, id }) => {
   const {
@@ -63,9 +76,9 @@ const CategoryOverlay = ({ isShowOverlay, product, id }) => {
         to={`/product/${id}`}
         onClick={() => setProductDetail({ ...product, id: id })}
       >
-        <span>View Details</span>
+        VIEW DETAILS
       </ViewDetails>
-      <AddToCart onClick={onclick}>Add To Cart</AddToCart>
+      <AddToCart onClick={onclick}>ADD TO CART</AddToCart>
     </Overlay>
   );
 };
