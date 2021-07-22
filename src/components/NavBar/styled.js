@@ -1,7 +1,9 @@
+import { NavLink as Link } from 'react-router-dom';
 import styled from "@emotion/styled";
 
-import { breakpoints } from "../layout/constant";
+import { breakpoints, size, colors } from "../layout/constant";
 import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
 export const Container = styled("div")`
   background: white;
@@ -11,36 +13,37 @@ export const Container = styled("div")`
   z-index: 1;
   padding: 0 10px;
   border-bottom: solid lightgray 1px;
-  & .navbar-nav .nav-link {
+  & .navbar-nav .nav-link{
     text-decoration: none;
     color: black;
   }
 `;
 
 export const StyledNav = styled(Navbar)`
-  & > .navbar-collapse .inner-nav div:last-child .dropdown-menu {
+  & > .navbar-collapse  .inner-nav div:last-child .dropdown-menu {
     visibility: hidden;
   }
-  & #logo-branch {
+  & #logo-branch{
     margin-left: calc(50% - 57.5px);
   }
   @media (min-width: ${breakpoints.lg}px) {
     & > .navbar-collapse {
-      margin-left: -131px;
+    margin-left: -131px;
     }
-    & > .navbar-collapse .inner-nav {
+    & > .navbar-collapse  .inner-nav {
       width: 100%;
       justify-content: center;
     }
-    & > .navbar-collapse .inner-nav div:last-child {
+    & > .navbar-collapse  .inner-nav div:last-child{
       position: absolute;
       right: 0;
       & .dropdown-menu {
         visibility: hidden !important;
       }
     }
-    & #logo-branch {
+    & #logo-branch{
       margin-left: 0;
     }
   }
-`;
+
+`

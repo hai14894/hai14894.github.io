@@ -6,10 +6,13 @@ import AppProvider from "./provider/AppProvider/App.provider";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
-  ReactDOM.render(<BrowserRouter>
-    <AppProvider>
-      <App />
-    </AppProvider>
-  </BrowserRouter>, div);
+  ReactDOM.render(
+    <BrowserRouter>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </BrowserRouter>,
+    div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });

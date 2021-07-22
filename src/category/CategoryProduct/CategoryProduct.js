@@ -1,34 +1,29 @@
 import React, { useState } from "react";
+
 import ProductInfoContainer from "../../components/ProductInfoContainer";
-import CategoryProductOverlay from "./CategoryProductOverlay";
-import {
-  Container,
-  TopContainer,
-  ImageContainer,
-  Brand,
-  Title,
-  Price,
-} from "./styled";
+import CategoryOverlay from "../CategoryProduct/CategoryOverlay";
+import { Container, TopContainer, Brand, Title, Price } from "./styled";
+import { ImageContainer } from "../../components/ImageContainer";
+import { useMouseOnOverLay } from "../../hooks/useMouseOnOverLay";
 
 const CategoryProduct = (props) => {
   const { brand, title, price, image, product, id } = props;
-  const [isShowOverlay, setisShowOverlay] = useState(false);
-  const handleMouseEnter = () => {
-    setisShowOverlay(true);
-  };
-  const handleMouseLeave = () => {
-    setisShowOverlay(false);
-  };
+  const [isShowOverlay, handleMouseOver, handleMouseLeave] =
+    useMouseOnOverLay();
+
   return (
-    <Container onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <Container
+      onMouseOver={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      data-testid={`category${id}`}
+    >
       <TopContainer>
-        <CategoryProductOverlay
+        <CategoryOverlay
           isShowOverlay={isShowOverlay}
           product={product}
           id={id}
         />
-
-        <ImageContainer image={image} />
+        <ImageContainer image={image} width="100%" paddingTop="65%" />
       </TopContainer>
       <ProductInfoContainer>
         <Brand>{brand}</Brand>

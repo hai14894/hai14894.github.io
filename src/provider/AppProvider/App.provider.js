@@ -70,5 +70,5 @@ const AppProvider = (props) => {
   );
 };
 
-export { useAppContext };
+export { useAppContext, AppContext };
 export default AppProvider;

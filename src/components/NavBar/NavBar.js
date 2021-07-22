@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useAppContext } from "../../provider/AppProvider/App.provider";
 import CartPopup from "./CartPopup";
 import { Container, StyledNav } from "./styled";
+
 const GlobalNav = () => {
   const {
     state: { cart },
@@ -14,6 +16,7 @@ const GlobalNav = () => {
   const handleClick = () => {
     setShowPopup(!isShowPopup);
   };
+
   const totalCount = cart
     ? cart.reduce((acc, current) => (acc += current.count), 0)
     : 0;
@@ -21,20 +24,19 @@ const GlobalNav = () => {
   return (
     <Container>
       <StyledNav expand="md" sticky="top">
-        <Navbar.Brand href="/" id="logo-branch">
+        <Navbar.Brand href="#home" id="logo-branch">
           <img src={`/media/logo.png`} alt="logo" />
         </Navbar.Brand>
-
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="inner-nav">
             <Nav.Link href="/">HOME</Nav.Link>
             <NavDropdown title="SHOP">
-              <NavDropdown.Item href="/">Link</NavDropdown.Item>
+              <NavDropdown.Item href="#">Link</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/">JOURNAL</Nav.Link>
+            <Nav.Link href="#home">JOURNAL</Nav.Link>
             <NavDropdown title="MORE">
-              <NavDropdown.Item href="/">Link</NavDropdown.Item>
+              <NavDropdown.Item href="#">Link</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown
               title={`MY CART (${totalCount})`}
