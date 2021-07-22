@@ -1,47 +1,115 @@
 import React from "react";
-import "./Cart.css";
-
 import { useAppContext } from "../provider/AppProvider/App.provider";
-import NavBar from "../components/NavBar/NavBar";
+import GlobalNav from "../components/NavBar/NavBar";
+import { Link } from "react-router-dom";
+import {
+  Heading,
+  CartContainer,
+  ProductContainer,
+  QuantityContainer,
+  CountContainer,
+  ActionContainer,
+  TopTable,
+  DetailTable,
+  OverView,
+  BottomTable,
+  ProductDetail,
+  Brand,
+  Title,
+} from "./styled";
 
+import { ImageContainer } from "../components/ImageContainer";
+import BaseSection from "../components/layout/BaseSection";
+import {
+  CountBox,
+  CountNumber,
+  IncrementBtn,
+  DecrementBtn,
+} from "../product/ProductDetails/styled";
+import { colors } from "../components/layout/constant";
+import "bootstrap-icons/font/bootstrap-icons.css";
 const Cart = () => {
   const {
     state: { cart },
     actions: { removeFromCart, incrementCount, decrementCount },
   } = useAppContext();
-
+  const total = cart.reduce(
+    (accumulator, item) => accumulator + item.count * item.price,
+    0
+  );
   return (
     <div className="Cart">
-      <NavBar />
-      <span className="shopping-cart-text">Shopping cart</span>
-      <div className="cart-wrapper">
-        {cart.length < 1 ? (
-          <div>Cart is empty</div>
-        ) : (
-          cart.map((item) => {
-            return (
-              <div key={item.id}>
-                <h1>{item.title}</h1>
-                <img src={`/media/${item.image}`} />
-                <p>{item.price * item.count}</p>
-                <div>
-                  <p>{item.count}</p>
-                  <button onClick={() => incrementCount(item.id, item.count)}>
-                    +
-                  </button>
+      <GlobalNav />
+      <BaseSection bgColor={colors.lightBtn}>
+        <Heading>
+          <h1>Shopping Cart</h1>
+        </Heading>
+      </BaseSection>
+      <BaseSection bgColor={colors.lightBtn}>
+        <CartContainer>
+          <TopTable>
+            <ProductContainer>PRODUCT</ProductContainer>
+            <QuantityContainer>QUANTITY</QuantityContainer>
+            <CountContainer>TOTAL</CountContainer>
+            <ActionContainer>ACTION</ActionContainer>
+          </TopTable>
+          {cart.length > 0 &&
+            cart.map((item, index) => (
+              <DetailTable key={`detailtable${index}`}>
+                <ProductContainer>
+                  <ImageContainer image={item.image} marginRight="10px" />
+                  <ProductDetail>
+                    <Brand>{item.brand}</Brand>
+                    <Title>{item.title}</Title>
+                  </ProductDetail>
+                </ProductContainer>
+                <QuantityContainer>
+                  <CountBox>
+                    <CountNumber>{item.count}</CountNumber>
+                    <IncrementBtn
+                      onClick={() => incrementCount(item.id, item.count)}
+                    >
+                      +
+                    </IncrementBtn>
+                    <DecrementBtn
+                      onClick={() => decrementCount(item.id, item.count)}
+                    >
+                      -
+                    </DecrementBtn>
+                  </CountBox>
+                </QuantityContainer>
+                <CountContainer>{`$${
+                  item.price * item.count
+                }.00`}</CountContainer>
+                <ActionContainer>
                   <button
-                    disabled={item.count === 1}
-                    onClick={() => decrementCount(item.id, item.count)}
+                    onClick={() => removeFromCart(item.id)}
+                    style={{ borderStyle: "none", background: "none" }}
                   >
-                    -
+                    <i className="bi bi-x-lg"></i>
                   </button>
-                </div>
-                <button onClick={() => removeFromCart(item.id)}>x</button>
-              </div>
-            );
-          })
-        )}
-      </div>
+                </ActionContainer>
+              </DetailTable>
+            ))}
+          <OverView>
+            <div>
+              <div>CART OVERVIEW</div>
+            </div>
+            <div>
+              <div>SUBTOTAL</div>
+              <div>{`$${total}.00`}</div>
+            </div>
+            <div>
+              <div>TOTAL</div>
+              <div>{`$${total}.00`}</div>
+            </div>
+          </OverView>
+          <BottomTable>
+            <Link to="/">CONTINUE SHOPPING</Link>
+            <button>{`CHECK OUT ($${total}.00)`}</button>
+          </BottomTable>
+        </CartContainer>
+      </BaseSection>
     </div>
   );
 };
