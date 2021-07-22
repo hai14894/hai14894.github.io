@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/store-front/static/css/main.3a6c7108.chunk.css",
+    "main.js": "/store-front/static/js/main.862d02bb.chunk.js",
+    "main.js.map": "/store-front/static/js/main.862d02bb.chunk.js.map",
+    "runtime-main.js": "/store-front/static/js/runtime-main.f01b9295.js",
+    "runtime-main.js.map": "/store-front/static/js/runtime-main.f01b9295.js.map",
+    "static/css/2.75d17423.chunk.css": "/store-front/static/css/2.75d17423.chunk.css",
+    "static/js/2.6f949b5b.chunk.js": "/store-front/static/js/2.6f949b5b.chunk.js",
+    "static/js/2.6f949b5b.chunk.js.map": "/store-front/static/js/2.6f949b5b.chunk.js.map",
+    "index.html": "/store-front/index.html",
+    "static/css/2.75d17423.chunk.css.map": "/store-front/static/css/2.75d17423.chunk.css.map",
+    "static/css/main.3a6c7108.chunk.css.map": "/store-front/static/css/main.3a6c7108.chunk.css.map",
+    "static/js/2.6f949b5b.chunk.js.LICENSE.txt": "/store-front/static/js/2.6f949b5b.chunk.js.LICENSE.txt",
+    "static/media/bootstrap-icons.css": "/store-front/static/media/bootstrap-icons.dfd0ea12.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f01b9295.js",
+    "static/css/2.75d17423.chunk.css",
+    "static/js/2.6f949b5b.chunk.js",
+    "static/css/main.3a6c7108.chunk.css",
+    "static/js/main.862d02bb.chunk.js"
+  ]
+}
