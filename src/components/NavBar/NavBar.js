@@ -23,7 +23,7 @@ const GlobalNav = () => {
   return (
     <Container>
       <StyledNav expand="md" sticky="top">
-        <Navbar.Brand href="#home" id="logo-branch">
+        <Navbar.Brand href="/" id="logo-branch">
           <img src={`/media/logo.png`} alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,11 +31,11 @@ const GlobalNav = () => {
           <Nav className="inner-nav">
             <Nav.Link href="/">HOME</Nav.Link>
             <NavDropdown title="SHOP">
-              <NavDropdown.Item href="#">Link</NavDropdown.Item>
+              <NavDropdown.Item href="/">Link</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#home">JOURNAL</Nav.Link>
+            <Nav.Link href="/">JOURNAL</Nav.Link>
             <NavDropdown title="MORE">
-              <NavDropdown.Item href="#">Link</NavDropdown.Item>
+              <NavDropdown.Item href="/">Link</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown
               title={`MY CART (${totalCount})`}
