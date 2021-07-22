@@ -48,6 +48,7 @@ const GlobalNav = () => {
         cart={cart}
         isShowPopup={isShowPopup}
         removeFromCart={removeFromCart}
+        handleClick={handleClick}
       />
     </Container>
   );

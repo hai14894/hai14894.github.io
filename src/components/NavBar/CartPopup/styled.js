@@ -1,6 +1,15 @@
 import styled from "@emotion/styled";
 
 import { breakpoints, size, colors } from "../../layout/constant";
+export const OverLay = styled("div")`
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  z-index: 9999;
+  background-color: transparent;
+`;
 
 export const Container = styled("div")`
   width: 100%;
@@ -10,8 +19,9 @@ export const Container = styled("div")`
   justify-content: center;
   padding: ${size.sm}px 1% ${size.sm}px 1%;
   position: absolute;
+  top: 90px;
   right: 0;
-  z-index: 999;
+  z-index: 99;
   background-color: white;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   font-family: sans-serif;
@@ -100,7 +110,13 @@ export const Brand = styled("div")`
 export const Title = styled("div")`
   color: black;
   font-size: 18px;
+  font-weight: 700;
   padding: ${size.micro}px 0px;
+  text-align: left;
+  & span {
+    font-size: 12px;
+    font-weight: 200;
+  }
 `;
 export const Price = styled("div")`
   color: rgb(159, 159, 159);
