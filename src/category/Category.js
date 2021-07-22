@@ -1,10 +1,10 @@
 import React from "react";
 import HeroSection from "../components/HeroSection/HeroSection.js";
 import GlobalNav from "../components/NavBar/NavBar.js";
-import CategoryProduct from "./categoryProduct/CategoryProduct";
+import CategoryProduct from "./CategoryProduct/CategoryProduct";
 import { useAppContext } from "../provider/AppProvider/App.provider";
 import BaseSection from "../components/layout/BaseSection";
-import { StyledCategoryContainer} from "./styled";
+import { StyledCategoryContainer } from "./styled";
 
 const Category = () => {
   const {
@@ -18,10 +18,11 @@ const Category = () => {
       <BaseSection>
         {isLoading ? (
           <div>Loading</div>
-        ) : (products && products.length > 0 &&
-          <StyledCategoryContainer categoriesCount={products.length}>
-            {
-              products.map((product, key) => {
+        ) : (
+          products &&
+          products.length > 0 && (
+            <StyledCategoryContainer categoriesCount={products.length}>
+              {products.map((product, key) => {
                 return (
                   <CategoryProduct
                     title={product.title}
@@ -30,11 +31,12 @@ const Category = () => {
                     image={product.image}
                     product={product}
                     key={key}
-                    id={key+1}
+                    id={key + 1}
                   />
-              );})
-            }
-          </StyledCategoryContainer>
+                );
+              })}
+            </StyledCategoryContainer>
+          )
         )}
       </BaseSection>
     </div>

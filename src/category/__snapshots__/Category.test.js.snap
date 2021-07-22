@@ -4,10 +4,10 @@ exports[`Category Page test suit Should render with correct snapshot 1`] = `
 <div>
   <div>
     <div
-      class="css-2tsmho"
+      class="css-ybrkw5"
     >
       <nav
-        class="css-ecwkr8 navbar navbar-expand-md navbar-light sticky-top"
+        class="css-1ikv20o navbar navbar-expand-md navbar-light sticky-top"
       >
         <a
           class="navbar-brand"
@@ -133,7 +133,7 @@ exports[`Category Page test suit Should render with correct snapshot 1`] = `
             class="css-1kirz7d"
           >
             <div
-              class="css-l7qxxb"
+              class="css-g2nr4m"
             />
             <div
               class="css-6gzdt7"
@@ -144,7 +144,7 @@ exports[`Category Page test suit Should render with correct snapshot 1`] = `
             class="css-jyu1kt"
           >
             <div
-              class="css-1my5m9b"
+              class="css-qnq5vm"
             >
               Kiriko
             </div>
@@ -154,7 +154,7 @@ exports[`Category Page test suit Should render with correct snapshot 1`] = `
               Blue Stripe Stoneware Plate
             </div>
             <div
-              class="css-s2tk1w"
+              class="css-1no1bop"
             >
               $40.00
             </div>
@@ -168,7 +168,7 @@ exports[`Category Page test suit Should render with correct snapshot 1`] = `
             class="css-1kirz7d"
           >
             <div
-              class="css-l7qxxb"
+              class="css-g2nr4m"
             />
             <div
               class="css-1fi6bgp"
@@ -179,7 +179,7 @@ exports[`Category Page test suit Should render with correct snapshot 1`] = `
             class="css-jyu1kt"
           >
             <div
-              class="css-1my5m9b"
+              class="css-qnq5vm"
             >
               Kiriko
             </div>
@@ -189,7 +189,7 @@ exports[`Category Page test suit Should render with correct snapshot 1`] = `
               Hand Painted Blue Flat Dish
             </div>
             <div
-              class="css-s2tk1w"
+              class="css-1no1bop"
             >
               $28.00
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import ProductInfoContainer from "../../components/ProductInfoContainer";
 import CategoryOverlay from "../CategoryProduct/CategoryOverlay";

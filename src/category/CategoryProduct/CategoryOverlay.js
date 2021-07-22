@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Overlay, ViewDetails, AddToCart } from "./styled";
 import { useAppContext } from "../../provider/AppProvider/App.provider";

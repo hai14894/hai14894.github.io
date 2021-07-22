@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -103,16 +103,7 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,8 +114,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,14 +129,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,16 +151,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
 import HeroSection from "../components/HeroSection/HeroSection.js";
+import GlobalNav from "../components/NavBar/NavBar.js";
 import CategoryProduct from "./CategoryProduct/CategoryProduct";
-import { Link } from "react-router-dom";
 import { useAppContext } from "../provider/AppProvider/App.provider";
 import BaseSection from "../components/layout/BaseSection";
 import { StyledCategoryContainer } from "./styled";
-import GlobalNav from "../components/NavBar/NavBar.js";
+&nbsp;
 const Category = () =&gt; {
   const {
     state: { isLoading, products },
-    actions: { setProductDetail },
   } = useAppContext();
 &nbsp;
   return (
@@ -194,23 +175,15 @@ const Category = () =&gt; {
             &lt;StyledCategoryContainer categoriesCount={products.length}&gt;
               {products.map((product, key) =&gt; {
                 return (
-                  &lt;Link
+                  &lt;CategoryProduct
+                    title={product.title}
+                    brand={product.brand}
+                    price={product.price}
+                    image={product.image}
+                    product={product}
                     key={key}
-                    to={`/product/${key + 1}`}
-                    onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt;
-<span class="cstat-no" title="statement not covered" >                      setProductDetail({ ...product, id: key + 1 })</span>
-                    }
-                    style={{ textDecoration: "none" }}
-                  &gt;
-                    &lt;CategoryProduct
-                      title={product.title}
-                      brand={product.brand}
-                      price={product.price}
-                      image={product.image}
-                      product={product}
-                      id={key + 1}
-                    /&gt;
-                  &lt;/Link&gt;
+                    id={key + 1}
+                  /&gt;
                 );
               })}
             &lt;/StyledCategoryContainer&gt;
@@ -229,7 +202,7 @@ export default Category;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Jul 22 2021 13:33:59 GMT+1000 (Australian Eastern Standard Time)
+                at Thu Jul 22 2021 14:23:53 GMT+1000 (Australian Eastern Standard Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>
