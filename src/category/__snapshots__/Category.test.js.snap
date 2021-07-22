@@ -11,7 +11,7 @@ exports[`Category Page test suit Should render with correct snapshot 1`] = `
       >
         <a
           class="navbar-brand"
-          href="#home"
+          href="/"
           id="logo-branch"
         >
           <img
@@ -58,8 +58,8 @@ exports[`Category Page test suit Should render with correct snapshot 1`] = `
             </div>
             <a
               class="nav-link"
-              data-rb-event-key="#home"
-              href="#home"
+              data-rb-event-key="/"
+              href="/"
             >
               JOURNAL
             </a>

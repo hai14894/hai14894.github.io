@@ -1,4 +1,4 @@
-
+This page is hosted at https://hai14894.github.io/
 Once installed, you should install the dependencies by running
 
 ```
@@ -20,5 +20,5 @@ npm test
 To see test coverage, run
 
 ```
-npm test -- --coverage 
+npm t -- --coverage --watchAll=false 
 ```
