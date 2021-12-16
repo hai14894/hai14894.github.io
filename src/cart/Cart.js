@@ -2,6 +2,7 @@ import React from "react";
 
 import { useAppContext } from "../provider/AppProvider/App.provider";
 import GlobalNav from "../components/NavBar/NavBar";
+import Payment from "../payment/Payment";
 import { Link } from "react-router-dom";
 import {
   Heading,
@@ -112,6 +113,7 @@ const Cart = () => {
             <Link>CONTINUE SHOPPING</Link>
             <button>{`CHECK OUT ($${total}.00)`}</button>
           </BottomTable>
+          <Payment></Payment>
         </CartContainer>
       </BaseSection>
     </div>

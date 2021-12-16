@@ -72,9 +72,7 @@ describe("Category Page test suit", () => {
       </AppContext.Provider>
     );
 
-    fireEvent.mouseOver(
-      container.querySelector('[data-testid="category1"]')
-    );
+    fireEvent.mouseOver(container.querySelector('[data-testid="category1"]'));
     expect(
       container.querySelector('[data-testid="category1"] a')
     ).toHaveAttribute("href", "/product/1");
@@ -91,9 +89,7 @@ describe("Category Page test suit", () => {
         </Router>
       </AppContext.Provider>
     );
-    fireEvent.mouseOver(
-      container.querySelector('[data-testid="category1"]')
-    );
+    fireEvent.mouseOver(container.querySelector('[data-testid="category1"]'));
 
     fireEvent.click(
       container.querySelector('[data-testid="category1"] button')
